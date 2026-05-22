@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const PHONE_DISPLAY = "(218) 539-0694";
 const PHONE_TEL = "+12185390694";
-const EMAIL = "oakvalleycurbing@gmail.com";
+const EMAIL = "dan@oakvalleycurbing.com";
 const FB_URL = "https://www.facebook.com/profile.php?id=61577341783607";
 const ADDRESS = "61257 Leaf River Rd, Wadena, MN";
 

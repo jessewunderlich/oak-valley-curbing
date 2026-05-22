@@ -78,7 +78,7 @@ export default function RootLayout({
               description:
                 "Custom decorative concrete landscape curbing serving Wadena and surrounding Minnesota lakes country.",
               telephone: "+1-218-539-0694",
-              email: "oakvalleycurbing@gmail.com",
+              email: "dan@oakvalleycurbing.com",
               url: "https://oakvalleycurbing.com",
               address: {
                 "@type": "PostalAddress",
