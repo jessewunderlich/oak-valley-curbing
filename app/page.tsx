@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 const PHONE_DISPLAY = "(218) 539-0694";
 const PHONE_TEL = "+12185390694";
@@ -88,31 +91,78 @@ const gallery = [
   },
 ];
 
-export default function Home() {
+function Nav() {
+  const [open, setOpen] = useState(false);
+  const links = [
+    ["#services", "Services"],
+    ["#gallery", "Gallery"],
+    ["#process", "Process"],
+    ["#faq", "FAQ"],
+    ["#area", "Service Area"],
+    ["#quote", "Quote"],
+  ];
   return (
-    <main className="min-h-screen">
-      {/* Nav */}
-      <header className="sticky top-0 z-50 backdrop-blur bg-[var(--background)]/85 border-b border-[var(--muted)]/20">
-        <div className="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between">
-          <Link href="#top" className="flex items-center gap-2.5">
-            <Image src="/brand/logo-sm.png" alt="Oak Valley Curbing logo" width={40} height={40} className="w-10 h-10" priority />
-            <span className="font-display text-lg md:text-xl tracking-tight">Oak Valley Curbing</span>
-          </Link>
-          <nav className="hidden md:flex gap-7 text-sm">
-            <a href="#services" className="hover:text-[var(--accent)]">Services</a>
-            <a href="#gallery" className="hover:text-[var(--accent)]">Gallery</a>
-            <a href="#process" className="hover:text-[var(--accent)]">Process</a>
-            <a href="#area" className="hover:text-[var(--accent)]">Service Area</a>
-            <a href="#quote" className="hover:text-[var(--accent)]">Quote</a>
-          </nav>
+    <header className="sticky top-0 z-50 backdrop-blur bg-[var(--background)]/85 border-b border-[var(--muted)]/20">
+      <div className="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between gap-3">
+        <Link href="#top" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
+          <Image src="/brand/logo-sm.png" alt="Oak Valley Curbing logo" width={40} height={40} className="w-10 h-10" priority />
+          <span className="font-display text-lg md:text-xl tracking-tight">Oak Valley Curbing</span>
+        </Link>
+        <nav className="hidden md:flex gap-7 text-sm">
+          {links.map(([href, label]) => (
+            <a key={href} href={href} className="hover:text-[var(--accent)]">{label}</a>
+          ))}
+        </nav>
+        <div className="flex items-center gap-2">
           <a
             href={`tel:${PHONE_TEL}`}
             className="text-sm font-medium px-4 py-2 rounded-full bg-[var(--foreground)] text-[var(--background)] hover:bg-[var(--accent)] transition-colors"
           >
-            {PHONE_DISPLAY}
+            <span className="hidden sm:inline">{PHONE_DISPLAY}</span>
+            <span className="sm:hidden">Call</span>
           </a>
+          <button
+            type="button"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            onClick={() => setOpen(!open)}
+            className="md:hidden p-2 rounded-lg hover:bg-[var(--muted)]/20"
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              {open ? (
+                <><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></>
+              ) : (
+                <><line x1="3" y1="7" x2="21" y2="7" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="17" x2="21" y2="17" /></>
+              )}
+            </svg>
+          </button>
         </div>
-      </header>
+      </div>
+      {open && (
+        <nav className="md:hidden border-t border-[var(--muted)]/20 bg-[var(--background)]">
+          <ul className="max-w-6xl mx-auto px-5 py-3 flex flex-col">
+            {links.map(([href, label]) => (
+              <li key={href}>
+                <a
+                  href={href}
+                  onClick={() => setOpen(false)}
+                  className="block py-2.5 text-base hover:text-[var(--accent)]"
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
+    </header>
+  );
+}
+
+export default function Home() {
+  return (
+    <main className="min-h-screen">
+      <Nav />
 
       {/* Hero */}
       <section id="top" className="relative overflow-hidden">
@@ -295,7 +345,8 @@ export default function Home() {
             <p className="uppercase tracking-[0.2em] text-xs text-[var(--accent)] mb-3">Free quote</p>
             <h2 className="font-display text-4xl md:text-5xl mb-5">Tell us about your project.</h2>
             <p className="text-[var(--foreground)]/75 leading-relaxed mb-7">
-              Most quotes are done in a quick on-site visit. Send us a few details and a photo of where you're picturing curbing — we'll come measure.
+              Most quotes happen in a quick on-site visit. Send us a few details and Dan will
+              call within one business day to schedule a free measurement — no pressure, no obligation.
             </p>
             <div className="space-y-3 text-sm">
               <p>
