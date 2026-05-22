@@ -233,7 +233,7 @@ export default function Home() {
           <ol className="grid md:grid-cols-4 gap-6">
             {process.map((p) => (
               <li key={p.step} className="relative">
-                <div className="font-display text-5xl text-[var(--accent)]/60 mb-2">{p.step}</div>
+                <div className="font-display text-5xl text-[var(--accent)] mb-2">{p.step}</div>
                 <h3 className="font-display text-xl mb-2">{p.title}</h3>
                 <p className="text-sm text-[var(--foreground)]/75 leading-relaxed">{p.body}</p>
               </li>
