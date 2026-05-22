@@ -73,18 +73,18 @@ const serviceArea = [
 const gallery = [
   {
     src: "/gallery/lakefront-curb.jpg",
-    alt: "Stamped concrete curbing along a lakeside flower bed in full bloom",
-    caption: "Lakefront residence — stamped curbing in full bloom",
+    alt: "Stamped concrete curbing along a flower bed in full bloom",
+    caption: "Residential flower bed",
   },
   {
     src: "/gallery/canine-acres.jpg",
-    alt: "Walnut stamped curbing around a rock-filled bed at a commercial entrance",
-    caption: "Canine Acres — commercial entrance",
+    alt: "Walnut stamped curbing around a rock landscape bed at Canine Acres",
+    caption: "Canine Acres",
   },
   {
     src: "/gallery/install-action.jpg",
-    alt: "Installer laying concrete curbing along a cabin foundation bed",
-    caption: "Cabin foundation — install in progress",
+    alt: "Installer laying concrete curbing along a foundation bed",
+    caption: "Install in progress",
   },
 ];
 
@@ -248,8 +248,8 @@ export default function Home() {
           <p className="uppercase tracking-[0.2em] text-xs text-[var(--accent)] mb-3">Colors & stamps</p>
           <h2 className="font-display text-4xl md:text-5xl">Pick a color that matches your home.</h2>
           <p className="mt-4 text-[var(--foreground)]/75">
-            Charcoal curb + black release + slate stamp is our most-requested combo for modern lake homes.
-            We bring full color samples to your free quote — natural gray, walnut, terra, and custom blends available.
+            We bring full color samples to your free quote. Charcoal, walnut, natural gray, and custom
+            blends available, plus your choice of stamp pattern.
           </p>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
