@@ -1,8 +1,14 @@
 import { NextResponse } from "next/server";
 
-// Stub endpoint. Wire to Resend / Formspree / SMS forwarder once contact details are confirmed.
+// Stub endpoint. Wire to Resend / Formspree / SMS forwarder once dan@oakvalleycurbing.com is live.
 export async function POST(request: Request) {
   const data = await request.formData();
+
+  // Honeypot — silently drop bot submissions.
+  if (data.get("website")) {
+    return NextResponse.redirect(new URL("/?sent=1#quote", request.url), 303);
+  }
+
   const payload = {
     name: data.get("name"),
     phone: data.get("phone"),
@@ -14,8 +20,7 @@ export async function POST(request: Request) {
 
   console.log("[oak-valley-curbing quote]", payload);
 
-  // TODO: forward to Oak Valley Curbing inbox + SMS once confirmed.
+  // TODO: forward to dan@oakvalleycurbing.com via Resend once domain email is live.
 
-  // For now, redirect back with a basic confirmation hash.
   return NextResponse.redirect(new URL("/?sent=1#quote", request.url), 303);
 }

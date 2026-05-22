@@ -60,14 +60,14 @@ const serviceArea = [
   "Sebeka",
   "Menahga",
   "Verndale",
+  "Staples",
   "Perham",
   "Frazee",
   "Detroit Lakes",
   "Pelican Rapids",
   "Vergas",
   "Park Rapids",
-  "Staples",
-  "Wadena & Otter Tail Counties",
+  "Long Prairie",
 ];
 
 const gallery = [
@@ -123,6 +123,7 @@ export default function Home() {
             fill
             priority
             sizes="100vw"
+            quality={72}
             className="object-cover object-[center_70%]"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-black/65" />
@@ -232,7 +233,7 @@ export default function Home() {
           <ol className="grid md:grid-cols-4 gap-6">
             {process.map((p) => (
               <li key={p.step} className="relative">
-                <div className="font-display text-5xl text-[var(--accent)]/30 mb-2">{p.step}</div>
+                <div className="font-display text-5xl text-[var(--accent)]/60 mb-2">{p.step}</div>
                 <h3 className="font-display text-xl mb-2">{p.title}</h3>
                 <p className="text-sm text-[var(--foreground)]/75 leading-relaxed">{p.body}</p>
               </li>
@@ -257,7 +258,7 @@ export default function Home() {
               <div className="h-32" style={{ background: c.hex }} aria-hidden />
               <div className="p-4 bg-white">
                 <p className="font-medium">{c.name}</p>
-                <p className="text-xs text-[var(--foreground)]/60 mt-1">{c.hex}</p>
+                <p className="text-xs text-[var(--foreground)]/75 mt-1">{c.hex}</p>
               </div>
             </div>
           ))}
@@ -269,10 +270,10 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-5 grid md:grid-cols-2 gap-12 items-center">
           <div>
             <p className="uppercase tracking-[0.2em] text-xs text-[var(--background)]/70 mb-3">Service area</p>
-            <h2 className="font-display text-4xl md:text-5xl mb-5">Otter Tail County and surrounding lakes.</h2>
+            <h2 className="font-display text-4xl md:text-5xl mb-5">Wadena and the Minnesota lakes.</h2>
             <p className="text-[var(--background)]/80 leading-relaxed">
-              Based in lakes country, working across northwest Minnesota. Not sure if we cover your area?
-              Call — if we don't, we probably know who does.
+              Based in Wadena, working across the lakes region. Not sure if we cover your area?
+              Call — if we don&apos;t, we probably know who does.
             </p>
           </div>
           <ul className="grid grid-cols-2 gap-3">
@@ -297,23 +298,23 @@ export default function Home() {
             </p>
             <div className="space-y-3 text-sm">
               <p>
-                <span className="text-[var(--foreground)]/60">Contact:</span>{" "}
+                <span className="text-[var(--foreground)]/75">Contact:</span>{" "}
                 <span className="font-medium">Dan Butzin</span>
               </p>
               <p>
-                <span className="text-[var(--foreground)]/60">Call or text:</span>{" "}
+                <span className="text-[var(--foreground)]/75">Call or text:</span>{" "}
                 <a href={`tel:${PHONE_TEL}`} className="font-medium underline underline-offset-4">{PHONE_DISPLAY}</a>
               </p>
               <p>
-                <span className="text-[var(--foreground)]/60">Email:</span>{" "}
+                <span className="text-[var(--foreground)]/75">Email:</span>{" "}
                 <a href={`mailto:${EMAIL}`} className="font-medium underline underline-offset-4">{EMAIL}</a>
               </p>
               <p>
-                <span className="text-[var(--foreground)]/60">Facebook:</span>{" "}
+                <span className="text-[var(--foreground)]/75">Facebook:</span>{" "}
                 <a href={FB_URL} target="_blank" rel="noopener" className="font-medium underline underline-offset-4">facebook.com/oakvalleycurbing</a>
               </p>
               <p>
-                <span className="text-[var(--foreground)]/60">Based in:</span>{" "}
+                <span className="text-[var(--foreground)]/75">Based in:</span>{" "}
                 <span className="font-medium">{ADDRESS}</span>
               </p>
             </div>
@@ -323,6 +324,15 @@ export default function Home() {
             method="POST"
             className="bg-white rounded-2xl p-7 border border-[var(--muted)]/30 space-y-4"
           >
+            {/* Honeypot - hidden from real users */}
+            <input
+              type="text"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              className="absolute left-[-9999px] w-px h-px opacity-0"
+              aria-hidden="true"
+            />
             <div className="grid grid-cols-2 gap-4">
               <label className="block">
                 <span className="text-sm text-[var(--foreground)]/70">Name</span>
@@ -373,8 +383,8 @@ export default function Home() {
             >
               Request Free Quote
             </button>
-            <p className="text-xs text-[var(--foreground)]/55">
-              We'll get back to you within one business day.
+            <p className="text-xs text-[var(--foreground)]/75">
+              We&apos;ll get back to you within one business day.
             </p>
           </form>
         </div>

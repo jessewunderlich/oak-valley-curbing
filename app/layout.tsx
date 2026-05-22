@@ -15,29 +15,48 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Oak Valley Curbing — Decorative Concrete Landscape Curbing | Otter Tail County, MN",
+  metadataBase: new URL("https://oakvalleycurbing.com"),
+  title: "Oak Valley Curbing — Decorative Concrete Landscape Curbing | Wadena, MN",
   description:
-    "Custom stamped concrete landscape curbing for Minnesota lakes country. Permanent borders that define your beds, protect landscaping, and boost curb appeal. Serving Frazee, Detroit Lakes, Perham & surrounding Otter Tail County.",
+    "Custom stamped concrete landscape curbing serving Wadena, Perham, Detroit Lakes, Park Rapids & the Minnesota lakes. Permanent borders that define beds, protect landscaping, and boost curb appeal. Free on-site quotes from Dan Butzin.",
   keywords: [
     "concrete curbing",
     "landscape curbing",
     "decorative curbing",
-    "Minnesota curbing",
-    "Wadena MN",
-    "Park Rapids",
-    "Frazee",
-    "Detroit Lakes",
-    "Perham",
+    "Wadena MN curbing",
+    "Minnesota concrete edging",
+    "Park Rapids curbing",
+    "Detroit Lakes curbing",
+    "Perham curbing",
     "stamped concrete edging",
     "flower bed borders",
   ],
+  alternates: { canonical: "https://oakvalleycurbing.com/" },
   openGraph: {
     title: "Oak Valley Curbing — Decorative Concrete Landscape Curbing",
     description:
       "Custom stamped concrete landscape curbing for Minnesota lakes country.",
     type: "website",
     locale: "en_US",
+    url: "https://oakvalleycurbing.com/",
+    siteName: "Oak Valley Curbing",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Oak Valley Curbing — decorative concrete landscape curbing in Wadena, MN",
+      },
+    ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Oak Valley Curbing",
+    description:
+      "Decorative concrete landscape curbing serving the Minnesota lakes. Wadena, MN.",
+    images: ["/og-image.jpg"],
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({
@@ -57,7 +76,7 @@ export default function RootLayout({
               "@id": "https://oakvalleycurbing.com/#business",
               name: "Oak Valley Curbing",
               description:
-                "Custom decorative concrete landscape curbing serving Wadena, Otter Tail County, and surrounding Minnesota lakes country.",
+                "Custom decorative concrete landscape curbing serving Wadena and surrounding Minnesota lakes country.",
               telephone: "+1-218-539-0694",
               email: "oakvalleycurbing@gmail.com",
               url: "https://oakvalleycurbing.com",
@@ -79,7 +98,15 @@ export default function RootLayout({
                 "Pelican Rapids, MN",
               ],
               priceRange: "$$",
-              sameAs: ["https://www.facebook.com/oakvalleycurbing"],
+              sameAs: ["https://www.facebook.com/profile.php?id=61577341783607"],
+              founder: { "@type": "Person", name: "Dan Butzin" },
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+1-218-539-0694",
+                contactType: "sales",
+                areaServed: "US-MN",
+                availableLanguage: "English",
+              },
             }),
           }}
         />
