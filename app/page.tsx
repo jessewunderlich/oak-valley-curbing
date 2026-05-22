@@ -229,7 +229,7 @@ export default function Home() {
             <p className="uppercase tracking-[0.2em] text-xs text-[var(--accent)] mb-3">Process</p>
             <h2 className="font-display text-4xl md:text-5xl">From quote to cure in under a week.</h2>
           </div>
-          <ol className="grid md:grid-cols-4 gap-6 mb-12">
+          <ol className="grid md:grid-cols-4 gap-6">
             {process.map((p) => (
               <li key={p.step} className="relative">
                 <div className="font-display text-5xl text-[var(--accent)]/30 mb-2">{p.step}</div>
@@ -238,9 +238,6 @@ export default function Home() {
               </li>
             ))}
           </ol>
-          <div className="relative aspect-[5/3] md:aspect-[16/7] rounded-3xl overflow-hidden border border-[var(--muted)]/30">
-            <Image src="/gallery/process-graphic.jpg" alt="Oak Valley Curbing process diagram: trench, lay, stamp" fill sizes="(max-width: 768px) 100vw, 1200px" className="object-cover" />
-          </div>
         </div>
       </section>
 
