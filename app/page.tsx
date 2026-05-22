@@ -126,7 +126,8 @@ export default function Home() {
             quality={72}
             className="object-cover object-[center_70%]"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-black/65" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/55 to-black/75" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
         </div>
         <div className="max-w-6xl mx-auto px-5 py-32 md:py-44 text-[var(--background)]">
           <p className="uppercase tracking-[0.2em] text-xs md:text-sm text-[var(--background)]/80 mb-5">
